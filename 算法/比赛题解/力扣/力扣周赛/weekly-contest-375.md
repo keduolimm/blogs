@@ -1,12 +1,18 @@
+
 ---
 
 # 前言
+
+---
+
+# 整体评价
 
 难得的手速场，这几题都比较套路，确实区间合并很久没考察到了。
 
 不过T4有多种解，栈模拟/差分/链式并查集，都可以的。
 
 ---
+
 ## [T1. 统计已测试设备](https://leetcode.cn/contest/weekly-contest-375/problems/count-tested-devices-after-test-operations/)
 
 思路: 差分思维
