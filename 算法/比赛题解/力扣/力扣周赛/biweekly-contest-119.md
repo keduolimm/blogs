@@ -42,7 +42,7 @@ class Solution {
 
 $$opt[i][j] = min(opt[i - 1][j - 1], opt[i - 1][i] , opt[i - 1][j + 1]) + cost(str[i], j)$$
 
-$cost(str[i], j) = (str[i] == j) ? 0 : 1$
+$$代价函数 cost(str[i], j) = (str[i] == j) ? 0 : 1$$
 
 这样时间复杂度为$O(26^2 * n)$
 
