@@ -34,6 +34,10 @@ class Solution {
 
 ## [T2. 需要添加的硬币的最小数量](https://leetcode.cn/contest/weekly-contest-374/problems/minimum-number-of-coins-to-be-added/)
 
+这题是结论题：
+
+$$前缀和大于等于某个数，可以吸纳于集合中，并能自由组合构建1~N的数$$
+
 ```java
 class Solution {
     public int minimumAddedCoins(int[] coins, int target) {        
@@ -63,6 +67,11 @@ class Solution {
 ---
 
 ## [T3. 统计完全子字符串](https://leetcode.cn/contest/weekly-contest-374/problems/count-complete-substrings/)
+
+思路: 拆位+前缀和
+
+时间复杂度相对有些高, $O(26^2 * n)$
+
 
 ```java
 class Solution {
