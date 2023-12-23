@@ -3,7 +3,9 @@
 
 # 力扣周赛
 
-[](weekly-contest-376.md)
+[第 120 场双周赛 解题报告 | 珂学家 | 前后缀拆解 & 启发式合并](biweekly-contest-120.md)
+
+[第 376 场周赛 解题报告 | 珂学家 | 中位数定律场](weekly-contest-376.md)
 
 [第 375 场周赛 解题报告 | 珂学家 | 区间合并+组合数学](weekly-contest-375.md)
 
