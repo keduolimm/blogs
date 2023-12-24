@@ -32,6 +32,17 @@ class Solution {
 }
 ```
 
+```python []
+class Solution:
+    def findIntersectionValues(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        s1 = set(nums1)
+        s2 = set(nums2)
+        
+        a = sum([1 if v in s2 else 0 for v in nums1])
+        b = sum([1 if v in s1 else 0 for v in nums2])
+        return [a, b]
+```
+
 ---
 
 ## [T2. 消除相邻近似相等字符](https://leetcode.cn/contest/biweekly-contest-119/problems/remove-adjacent-almost-equal-characters/)
@@ -76,6 +87,27 @@ class Solution {
 }
 ```
 
+```python []
+class Solution:
+    def removeAlmostEqualCharacters(self, word: str) -> int:
+        n = len(word)
+        dp0 = [inf] * n
+        dp1 = [inf] * n
+        
+        dp0[0] = 0
+        dp1[0] = 1
+        
+        for i in range(1, n):
+            if abs(ord(word[i]) - ord(word[i - 1])) > 1:
+                dp0[i] = min(dp0[i - 1], dp1[i - 1])
+                dp1[i] = min(dp0[i - 1], dp1[i - 1]) + 1
+            else:
+                dp0[i] = dp1[i - 1]
+                dp1[i] = min(dp0[i - 1], dp1[i - 1]) + 1
+                
+        return min(dp0[n - 1], dp1[n - 1])
+```
+
 当然这里也有额外的技巧，可以把时间复杂度降到$O(n)$
 
 ---
@@ -110,6 +142,23 @@ class Solution {
     }
     
 }
+```
+
+```python []
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        c = Counter()
+        j = 0
+        
+        res = 0
+        for i in range(len(nums)):
+            c[nums[i]] += 1
+            while j <= i and c[nums[i]] > k:
+                c[nums[j]] -= 1
+                j += 1
+            res = max(res, i - j + 1)
+            
+        return res
 ```
 
 ---
@@ -175,6 +224,43 @@ class Solution {
     }
     
 }
+```
+
+```python []
+class Solution:
+    def numberOfSets(self, n: int, maxDistance: int, roads: List[List[int]]) -> int:
+        mask = 1 << n
+        res = 0
+        for s in range(0, mask):
+            path = [[inf] * n for _ in range(n)]
+            for j in range(n):
+                path[j][j] = 0
+            for u, v, c in roads:
+                if ((1 << u) & s) != 0 and ((1 << v) & s) != 0:
+                    path[u][v] = min(path[u][v], c)
+                    path[v][u] = min(path[v][u], c)
+                
+            for k in range(n):
+                for i in range(n):
+                    for j in range(n):
+                        if path[i][j] > path[i][k] + path[k][j]:
+                            path[i][j] = path[i][k] + path[k][j]
+            
+            ok = True
+            for i in range(n):
+                if ((1 << i) & s) == 0:
+                    continue
+                for j in range(n):
+                    if i == j or ((1 << j) & s) == 0:
+                        continue
+                    if path[i][j] > maxDistance:
+                        ok = False
+            if ok:
+                res += 1
+                
+            # print (s, ok)
+                
+        return res
 ```
 
 ---
