@@ -92,7 +92,7 @@ $$|a_1 - x| + |a_2 - x| + ... + |a_n - x| 最小$$
 
 不过好的地方在于，这个数组的中位数，其目标解一定在回文数最接近的左右两数之间
 
-```java
+```java []
 class Solution {
 
     static TreeSet<Long> range = new TreeSet<>();
@@ -148,6 +148,46 @@ class Solution {
         }
     }
 }
+```
+
+```python []
+import bisect
+from typing import List
+
+arr = []
+for i in range(1, 10 ** 5):
+    s = str(i)
+    s1 = s[:-1] + s[::-1]
+    s2 = s + s[::-1]
+    if int(s1) < 1e9:
+        arr.append(int(s1))
+    if int(s2) < 1e9:
+        arr.append(int(s2))
+
+arr.sort()
+
+
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        # 中位数定律
+        nums.sort()
+        n = len(nums)
+        mid = nums[n // 2]
+
+        def evaluate(x: int) -> int:
+            tmp = 0
+            for v in nums:
+                tmp += abs(v - x)
+            return tmp
+
+        pos = bisect.bisect_left(arr, mid)
+        
+        if pos < len(arr) and arr[pos] == mid:
+            return evaluate(mid)
+
+        r1 = evaluate(arr[pos - 1]) if pos > 0 else inf
+        r2 = evaluate(arr[pos]) if pos < len(arr) else inf
+        return min(r1, r2)
 ```
 
 ---
