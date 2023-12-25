@@ -45,6 +45,22 @@ public class Main {
 }
 ```
 
+```python []
+n = int(input())
+arr = list(map(int, input().split()))
+
+s = input()
+
+res = 0
+for i in range(n):
+    if s[i] == 'T':
+        res += arr[i]
+    else:
+        res += max(5, arr[i] // 100)
+        
+print (res)
+```
+
 ---
 
 ## [B. 小红吃桃](https://ac.nowcoder.com/acm/contest/72266/B)
@@ -53,7 +69,7 @@ public class Main {
 
 算思维题吧，就是大的和大的组合，小的和小的组合，这样整体一定是最大，乘积效应吧
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -87,6 +103,24 @@ public class Main {
     }
 }
 
+```
+```python []
+n = int(input())
+arr = list(map(int, input().split()))
+brr = list(map(int, input().split()))
+
+mod = 10 ** 9 + 7
+c, d = 1, 1
+
+for i in range(n):
+    if arr[i] >= brr[i]:
+        c = c * arr[i] % mod
+        d = d * brr[i] % mod
+    else:
+        c = c * brr[i] % mod
+        d = d * arr[i] % mod
+        
+print ((c + d) % mod)
 ```
 
 ----
@@ -140,6 +174,24 @@ public class Main {
 }
 ```
 
+```python []
+n = int(input())
+arr = list(map(int, input().split()))
+
+res = 0
+for i in range(n - 1, -1, -1):
+    if i - 2 >= 0:
+        m = min(arr[i] // 3, arr[i - 1] // 2, arr[i - 2])
+        
+        res += 5 * m
+        arr[i] -= 3 * m
+        arr[i - 1] -= 2 * m
+        arr[i - 2] -= m
+    res += arr[i]
+    
+print (res)
+```
+
 ---
 
 ## [D. 小红树](https://ac.nowcoder.com/acm/contest/72266/D)
@@ -148,7 +200,7 @@ public class Main {
 
 从换根的角度出发，然后在每条边上，处理边两侧的连通数差值
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -236,6 +288,73 @@ public class Main {
 
 }
 
+```
+
+```python []
+from types import GeneratorType
+
+# 递归栈优化
+def bootstrap(f, stack=[]):
+    def wrappedfunc(*args, **kwargs):
+        if stack:
+            return f(*args, **kwargs)
+        else:
+            to = f(*args, **kwargs)
+            while True:
+                if type(to) is GeneratorType:
+                    stack.append(to)
+                    to = next(to)
+                else:
+                    stack.pop()
+                    if not stack:
+                        break
+                    to = stack[-1].send(to)
+            return to
+
+    return wrappedfunc
+
+
+n = int(input())
+s = " " + input()
+
+g = [[] for _ in range(n + 1)]
+
+for i in range(n - 1):
+    u, v = list(map(int, input().split()))
+    g[u].append(v)
+    g[v].append(u)
+    
+
+dp = [0] * (n + 1)
+depth = [0] * (n + 1)
+
+@bootstrap
+def dfs(u: int, fa: int, d: int):
+    depth[u] = d
+    res = 1
+    for v in g[u]:
+        if v == fa:
+            continue
+        yield dfs(v, u, d + 1)
+        if s[u] == s[v]:
+            res += dp[v] - 1
+        else:
+            res += dp[v]
+    dp[u] = res
+    yield
+    
+dfs(1, -1, 1)
+
+ans = 0
+for i in range(1, n + 1):
+    for v in g[i]:
+        if depth[v] > depth[i]:
+            if s[i] == s[v]:
+                ans += abs(dp[1] - dp[v] + 1 - dp[v])
+            else:
+                ans += abs(dp[1] - dp[v] - dp[v])
+                
+print (ans)
 ```
 
 ---

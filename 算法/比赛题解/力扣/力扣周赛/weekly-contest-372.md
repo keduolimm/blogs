@@ -49,6 +49,28 @@ class Solution {
 }
 ```
 
+```python [] 
+class Solution:
+    def findMinimumOperations(self, s1: str, s2: str, s3: str) -> int:
+        mp = defaultdict(int)
+        for i in range(1, len(s1) + 1):
+            mp[s1[:i]] += 1
+          
+        for i in range(1, len(s2) + 1):
+            mp[s2[:i]] += 1
+            
+        for i in range(1, len(s3) + 1):
+            mp[s3[:i]] += 1
+            
+        
+        res = 10 ** 18
+        for k, v in mp.items():
+            if v == 3:
+                res = min(res, len(s1) + len(s2) + len(s3) - 3 * len(k))
+        
+        return -1 if res == 10 ** 18 else res
+```
+
 ---
 
 ## [T2. 区分黑球与白球](https://leetcode.cn/contest/weekly-contest-372/problems/separate-black-and-white-balls/)
@@ -78,6 +100,20 @@ class Solution {
     }
     
 }
+```
+
+```python [] 
+class Solution:
+    def minimumSteps(self, s: str) -> int:
+        black = 0
+        res = 0
+        for i in range(len(s)):
+            if s[i] == '0':
+                res += black
+            else:
+                black += 1
+                
+        return res
 ```
 
 ---
@@ -117,7 +153,7 @@ $$左右两侧越接近，则(a \oplus x ) * (b \oplus x)最大。$$
 
 所以这题是基于贪心的构造解
 
-```java
+```java []
 class Solution {
     // 构造
     public int maximumXorProduct(long a, long b, int n) {
@@ -147,6 +183,30 @@ class Solution {
     }
 
 }
+```
+
+```python
+class Solution:
+    def maximumXorProduct(self, a: int, b: int, n: int) -> int:
+        
+        c, d = 0, 0
+        for i in range(50, -1, -1):
+            if i >= n:
+                c |= (a & (1 << i))
+                d |= (b & (1 << i))
+            else:
+                t1 = (a >> i) & 1
+                t2 = (b >> i) & 1
+                if t1 == t2:
+                    c |= (1 << i)
+                    d |= (1 << i)
+                else:
+                    if c > d:
+                        d |= (1 << i)
+                    else:
+                        c |= (1 << i)
+        
+        return c * d % (10 ** 9 + 7)
 ```
 
 ---

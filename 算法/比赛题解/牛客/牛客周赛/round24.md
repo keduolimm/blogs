@@ -26,7 +26,7 @@
 
 令i+j为奇数，则赋予奇数，反之填冲偶数
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -58,7 +58,26 @@ public class Main {
 
 }
 ```
+```python []
+n = int(input())
 
+p1, p2 = 1, 2
+
+res = [[0] * n for _ in range(n)] 
+
+for i in range(n):
+    for j in range(n):
+        if (i + j) % 2 == 0:
+            res[i][j] = p1
+            p1 += 2
+        else:
+            res[i][j] = p2
+            p2 += 2
+
+for i in range(n):
+    print (' '.join(map(str, res[i])))
+
+```
 ---
 ## [B. 小红的因子](https://ac.nowcoder.com/acm/contest/71993/B)
 
@@ -68,7 +87,7 @@ public class Main {
 
 整体的时间复杂度为$O(nlogn)$
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -94,6 +113,24 @@ public class Main {
 
 }
 ```
+
+```python []
+import math
+
+t = int(input())
+while t > 0:
+    t -= 1
+    
+    res = 0
+    n = int(input())
+    for i in range(int(math.sqrt(n)), 0, -1):
+        if n % i == 0 and n > i * i:
+            res = n // i
+            break
+            
+    print (res)
+```
+
 ---
 
 ## [C. 小红的小数点串](https://ac.nowcoder.com/acm/contest/71993/C)
@@ -104,7 +141,7 @@ public class Main {
 - 中间项为左侧尽量大，右侧只保留一位
 - 最后一个为 右侧尽量大(不包含第一位)
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -149,6 +186,22 @@ public class Main {
 
 }
 ```
+
+```python []
+arr = input().split(".")
+
+if len(arr) == 1:
+    print (arr[0])
+else:
+    res = float(arr[0] + '.' + arr[1][0])
+    for i in range(1, len(arr) - 1):
+        res += float(arr[i][1:] + '.' + arr[i + 1][0])
+    res += float(arr[len(arr) - 1][1:])
+    
+    print ("%.1f" % (res))
+        
+```
+
 ---
 
 ## [D. 小红的数组操作](https://ac.nowcoder.com/acm/contest/71993/D)
@@ -157,7 +210,7 @@ public class Main {
 
 二分最小的最大值即可
 
-```java
+```java []
 import java.io.*;
 import java.util.*;
 import java.util.function.Function;
@@ -205,6 +258,34 @@ public class Main {
     }
 
 }
+```
+
+```python []
+n, k, x = list(map(int, input().split()))
+arr = list(map(int, input().split()))
+
+mz = max(arr)
+# 寻找上下界
+l = mz - k * x
+r = mz
+
+def check(v: int) -> bool:
+    cnt = 0
+    for u in arr:
+        if u > v:
+            cnt += (u - v + x - 1) // x
+        if cnt > k:
+            return False
+    return cnt <= k
+
+while l <= r:
+    m = l + (r - l) // 2
+    if check(m):
+        r = m - 1
+    else:
+        l = m + 1
+        
+print (l)
 ```
 ---
 
