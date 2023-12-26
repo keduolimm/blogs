@@ -17,7 +17,7 @@ T4是换根模板题，也就这样了。
 
 思路: 模拟
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
