@@ -36,9 +36,7 @@ a次操作+b，且a，b都是正整数
 
   无解
 
-
-
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -58,6 +56,20 @@ public class Main {
     }
 }
 ```
+```python []
+import sys
+RI = lambda: map(int, sys.stdin.buffer.readline().split())
+
+t, = RI()
+
+for _ in range(t):
+    a, b = list(RI())
+    if b <= a:
+        print (-1, -1)
+    else:
+        print (1, b - a)
+```
+
 
 ---
 ## [B. 小红打O](https://ac.nowcoder.com/acm/contest/71593/B)
@@ -282,7 +294,7 @@ public class Main {
 
 而3部分的独立计算，就是简单的0-1背包
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -343,6 +355,36 @@ public class Main {
 }
 ```
 
+```python [] 
+import sys
+from typing import List
+
+RI = lambda: map(int, sys.stdin.buffer.readline().split())
+RS = lambda: map(bytes.decode, sys.stdin.buffer.readline().strip().split())
+
+n, p = RI()
+s, = RS()
+arr = list(RI())
+
+mod = 10 ** 9 + 7
+
+def pack01(seq : List[int]) -> int:
+    dp = [0] * (p + 1)
+    dp[0] = 1
+    for v in seq:
+        for i in range(p - v, -1, -1):
+            dp[i + v] += dp[i]
+            dp[i + v] %= mod
+    return dp[p]
+
+r1 = pack01(arr)
+r2 = pack01([arr[i] for i in range(n) if s[i] == 'B'])
+r3 = pack01([arr[i] for i in range(n) if s[i] == 'R'])
+res = ((r1 - r2 - r3) % mod + mod) % mod
+
+print (res)
+
+```
 
 
 ---

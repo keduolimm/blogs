@@ -23,5 +23,7 @@ arr = list(map(int, input().split()))
 还是需要引入buffer
 
 ```python
-
+RI = lambda: map(int, sys.stdin.buffer.readline().split())
+RS = lambda: map(bytes.decode, sys.stdin.buffer.readline().strip().split())
+RILST = lambda: list(RI())
 ```

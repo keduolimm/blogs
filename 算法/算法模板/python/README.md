@@ -12,3 +12,13 @@
 - [优先队列](heap.md)
 
 - [递归过深的优化](stacktoodeep.md)
+
+- [缓存](cache.md)
+
+- [二分](bisect.md)
+
+- [sortedlist](sortedlist.md)
+
+- [排序](sorted.md)
+
+- [并查集](dsu.md)

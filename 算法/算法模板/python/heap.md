@@ -84,3 +84,6 @@ class Solution:
 # 题单
 
 
+# 参考文章
+
+[python3中的heapq模块（堆排序）使用](https://blog.csdn.net/flyingluohaipeng/article/details/129728356) 
