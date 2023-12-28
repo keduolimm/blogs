@@ -140,7 +140,33 @@
 
 [45. 跳跃游戏 II](45-jump-game-ii.md)
 
+[763. 划分字母区间](763-partition-labels.md)
 
+---
+
+## 动态规划
+
+[70. 爬楼梯](70-climbing-stairs.md)
+
+[118. 杨辉三角](118-pascals-triangle.md)
+
+[198. 打家劫舍](198-house-robber.md)
+
+[279. 完全平方数](279-perfect-squares.md)
+
+[322. 零钱兑换](322-coin-change.md)
+
+[139. 单词拆分](139-word-break.md)
+
+[300. 最长递增子序列](300-longest-increasing-subsequence.md)
+
+[152. 乘积最大子数组](152-maximum-product-subarray.md)
+
+[416. 分割等和子集](416-partition-equal-subset-sum.md)
+
+[32. 最长有效括号](32-longest-valid-parentheses.md)
+
+---
 
 
 
