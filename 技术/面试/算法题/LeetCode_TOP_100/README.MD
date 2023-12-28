@@ -108,6 +108,40 @@
 
 ---
 
+## 栈
+
+[20. 有效的括号](20-valid-parentheses.md)
+
+[155. 最小栈](155-min-stack.md)
+
+[394. 字符串解码](394-decode-string.md)
+
+[739. 每日温度](739-daily-temperatures.md)
+
+[84. 柱状图中最大的矩形](84-largest-rectangle-in-histogram.md)
+
+---
+
+## 堆
+
+[215. 数组中的第K个最大元素](215-kth-largest-element-in-an-array.md)
+
+[347. 前 K 个高频元素](347-top-k-frequent-elements.md)
+
+[295. 数据流的中位数](295-find-median-from-data-stream.md)
+
+---
+
+## 贪心算法
+
+[121. 买卖股票的最佳时机](121-best-time-to-buy-and-sell-stock.md)
+
+[55. 跳跃游戏](55-jump-game.md)
+
+[45. 跳跃游戏 II](45-jump-game-ii.md)
+
+
+
 
 
 
