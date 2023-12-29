@@ -212,6 +212,9 @@
 
 [169. 多数元素](169-majority-element.md)
 
+[75. 颜色分类](75-sort-colors.md)
 
+[31. 下一个排列](31-next-permutation.md)
 
+[287. 寻找重复数](287-find-the-duplicate-number.md)
 
