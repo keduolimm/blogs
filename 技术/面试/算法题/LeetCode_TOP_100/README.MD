@@ -108,6 +108,39 @@
 
 ---
 
+## 二叉树
+
+---
+
+## 图论
+
+---
+
+## 回溯
+
+[46. 全排列](46-permutations.md)
+
+[78. 子集](78-subsets.md)
+
+[17. 电话号码的字母组合](17-letter-combinations-of-a-phone-number.md)
+
+[39. 组合总和](39-combination-sum.md)
+
+[22. 括号生成](22-generate-parentheses.md)
+
+[79. 单词搜索](79-word-search.md)
+
+[131. 分割回文串](131-palindrome-partitioning.md)
+
+[51. N 皇后](51-n-queens.md)
+
+---
+
+## 二分查找
+
+
+---
+
 ## 栈
 
 [20. 有效的括号](20-valid-parentheses.md)
@@ -168,8 +201,16 @@
 
 ---
 
+# 多维动态规划
 
 
+---
+
+# 技巧
+
+[136. 只出现一次的数字](136-single-number.md)
+
+[169. 多数元素](169-majority-element.md)
 
 
 
