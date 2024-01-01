@@ -3,6 +3,8 @@
 
 # 力扣周赛
 
+[# 第 378 场周赛 解题报告 | 珂学家 | 分类讨论场](weekly-contest-378.md)
+
 [第 377 场周赛 解题报告 | 珂学家 | Floyd + 划分型DP](weekly-contest-377.md)
 
 [第 120 场双周赛 解题报告 | 珂学家 | 前后缀拆解 & 启发式合并](biweekly-contest-120.md)
