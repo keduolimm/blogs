@@ -18,6 +18,7 @@
 - 算法模板
   - [Java算法板子集](./算法/算法模板/java/README.md)
   - [Python算法板子集](./算法/算法模板/python/README.md)
+  - [C++算法板子集](./算法/算法模板/c++/README.md)
 
 ---
 # 技术
