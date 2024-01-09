@@ -28,3 +28,10 @@
 # top 100的题单&题解
 
 [top 100题解](../../../技术/面试/算法题/LeetCode_TOP_100/README.MD)
+
+
+---
+
+# 函数库API
+
+[python3函数库](https://docs.python.org/zh-cn/3/library/functions.html)
