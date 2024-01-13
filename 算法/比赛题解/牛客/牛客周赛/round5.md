@@ -24,7 +24,7 @@
 
 模拟题吧，把大字字母变成下一位，小写字母前一位
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -44,6 +44,30 @@ public class Main {
         System.out.println(new String(str));
     }
 
+}
+```
+
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    string s;
+    cin >> s;
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+        char c = s[i];
+        if (c >= 'a' && c <= 'z') {
+            s[i] = (char)((c - 'a' + 25) % 26 + 'a');
+        } else if (c >= 'A' && c <= 'Z') {
+            s[i] = (char)((c - 'A' + 1) % 26 + 'A');
+        }
+    }
+    cout << s << endl;
+    
+    return 0;
 }
 ```
 

@@ -22,7 +22,7 @@
 - 0,6,9对应一个圆圈
 - 8对应2个圆圈
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -42,6 +42,27 @@ public class Main {
 
 }
 ```
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    string s;
+    cin >> s;
+    int res = 0;
+    for (char c: s) {
+        if (c == '0') res += 1;
+        else if (c=='6') res += 1;
+        else if (c == '8') res+= 2;
+        else if (c == '9') res+= 1;
+    }
+    cout << res << endl;
+    return 0;
+}
+```
+
 
 ---
 

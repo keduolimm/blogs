@@ -19,7 +19,7 @@ index 1 / index 0的问题
 
 先减1，再加1
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -40,6 +40,24 @@ public class Main {
 }
 
 ```
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    int q;
+    cin >> q;
+    while (q-- > 0) {
+        int m, x;
+        cin >> m >> x;
+        cout << ((x - 1) + m) % m + 1 << endl;
+    }
+    return 0;
+}
+```
+
 
 ---
 

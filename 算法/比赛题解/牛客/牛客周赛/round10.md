@@ -23,7 +23,7 @@ T2真是一个折磨人的小妖精，写了两版DFS，第二版计数DFS才过
 
 然后把该右端点变成新的左端点，继续寻找直至结束
 
-```java
+```java []
 import java.io.*;
 import java.util.*;
 
@@ -52,6 +52,35 @@ public class Main {
 }
 ```
 
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i< n; i++) {
+        cin >> arr[i];
+    }
+    
+    int res = 1;
+    int j = 0;
+    while (j < n) {
+        int k = j + 1;
+        while (k < n && abs(arr[k - 1] - arr[k]) <= 1) {
+            k++;
+        }
+        res = max(res, k - j);
+        j = k;
+    }
+    cout << res << endl;
+    
+    return 0;
+}
+```
+
 ---
 
 ## [B. 游游的字符重排](https://ac.nowcoder.com/acm/contest/64272/B)
@@ -64,7 +93,7 @@ public class Main {
 
 然后进行dfs，这样有一个好处，就是天然去重，时间复杂度为$O(n!)$
 
-```java
+```java []
 import java.io.*;
 import java.util.*;
 
@@ -97,6 +126,46 @@ public class Main {
 
 }
 
+```
+
+```c++ []
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+
+int64 dfs(const string &s, char last, int mask) {
+    int n = s.length();
+    if (mask == (1 << n) - 1) {
+        return 1LL;
+    }
+    int64 res = 0;
+    for (int i = 0; i < n; i++) {
+        if ((mask & (1 << i)) == 0) {
+            if (s[i] == last || (i > 0 && s[i] == s[i - 1] && (mask &(1 << (i - 1))) == 0) ) {
+                continue;
+            }
+            res += dfs(s, s[i], mask | (1 << i));
+        }
+    }
+    return res;
+}
+
+int main() {
+    
+    string s;
+    cin >> s;
+    
+    sort(s.begin(), s.end());
+    
+    int64 res = dfs(s, ' ', 0);
+    cout << res << endl;
+    
+    return 0;
+}
 ```
 
 ---

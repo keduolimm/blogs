@@ -20,6 +20,10 @@
 
 ### 线段树
 
+[RMQ版本的线段树](segtree.md)
+
+### Trie 树
+
 ---
 ## 数学
 
@@ -58,7 +62,10 @@ D(n) = (n - 1) * (D(n - 1) - D(n - 2))
 
 ### AVL树
 
+[Treap](treap.md)
+
 ### LCA
 
+[lca倍增](lca.md)
 
 

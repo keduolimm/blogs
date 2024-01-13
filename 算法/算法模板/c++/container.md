@@ -3,6 +3,13 @@
 
 find
 
+子字符串的匹配
+
+push_back
+
+用于字符串的拼接
+
+
 # vector
 
 push_back
