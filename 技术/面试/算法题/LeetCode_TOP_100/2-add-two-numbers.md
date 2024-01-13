@@ -1,6 +1,8 @@
 
 [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/description)
 
+
+- c++ 代码
 ```c++ []
 /**
  * Definition for singly-linked list.
@@ -59,3 +61,12 @@ public:
     }
 };
 ```
+
+---
+
+- python
+
+```python[] 
+
+```
+

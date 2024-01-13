@@ -16,6 +16,8 @@ T3, T4 都是典题
 
 ## [T1. 大于等于顺序前缀和的最小缺失整数](https://leetcode.cn/contest/biweekly-contest-121/problems/smallest-missing-integer-greater-than-sequential-prefix-sum/)
 
+思路: 模拟
+
 ```c++ []
 class Solution {
 public:
@@ -39,6 +41,8 @@ public:
 
 ## [T2. 使数组异或和等于 K 的最少操作次数](https://leetcode.cn/contest/biweekly-contest-121/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k/)
 
+思路: 思维题
+
 ```c++ []
 class Solution {
 public:
@@ -61,6 +65,10 @@ public:
 ---
 
 ## [T3. 使 X 和 Y 相等的最少操作次数](https://leetcode.cn/contest/biweekly-contest-121/problems/minimum-number-of-operations-to-make-x-and-y-equal/)
+
+思路: BFS
+
+BFS的状态数10^6内
 
 ```c++ []
 class Solution {
@@ -106,6 +114,8 @@ public:
 --- 
 
 ## [T4. 统计强大整数的数目](https://leetcode.cn/contest/biweekly-contest-121/problems/count-the-number-of-powerful-integers/)
+
+思路: 数位DP
 
 ```c++ []
 using int64 = long long;
