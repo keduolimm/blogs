@@ -20,7 +20,7 @@
 
 因此从个位数中着手添加，是最好的选择.
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -44,6 +44,30 @@ public class Main {
 }
 ```
 
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    int x;
+    cin >> x;
+    // 特殊行
+    int res = -1;
+    int left = x % 7;
+    for (int i = 0; i < 10; i++) {
+        if ((left * 10 + i) % 7 == 0) {
+            res = i;
+            break;
+        }
+    }
+    cout << x << res << endl;
+    
+    return 0;
+}
+```
+
 ---
 
 ## [B. 游游的字母串](https://ac.nowcoder.com/acm/contest/61570/B)
@@ -54,7 +78,7 @@ public class Main {
 
 这样的时间复杂度为$O(26*n)$, 当然这题可以做到$O(n)$
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -82,6 +106,32 @@ public class Main {
 
 ```
 
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    string s;
+    cin >> s;
+    
+    // 枚举
+    int res = 0x3f3f3f3f;
+    for (int i = 0; i < 26; i++) {
+        int tmp = 0;
+        for (char c: s) {
+            int p = c - 'a';
+            tmp += min(abs(p - i), 26 - abs(p - i));
+        }
+        res = min(res, tmp);
+    }
+    cout << res << endl;
+    
+    return 0;
+}
+```
+
 ---
 
 ## [C. 游游的水果大礼包](https://ac.nowcoder.com/acm/contest/61570/C)
@@ -102,7 +152,7 @@ $2 * x + y \le m$
 
 总得感觉这个函数是个凸函数，可以用三分搞，总之是种很奇怪的感觉
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -131,6 +181,10 @@ public class Main {
     }
 
 }
+```
+
+```c++ []
+
 ```
 
 ---

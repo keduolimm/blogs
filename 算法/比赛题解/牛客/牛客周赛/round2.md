@@ -23,7 +23,7 @@
 
 ### 方法一: 暴力
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -49,6 +49,32 @@ public class Main {
 
 }
 ```
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+    
+    int n = a.length();
+    a = a + a;
+    
+    int res = 0;
+    int p = 0;
+    // string的fing方法
+    while ((p = a.find(b, p)) != -1 && p < n) {
+        p += 1;
+        res++;
+    } 
+    
+    cout << res << endl;
+    
+    return 0;
+}
+```
+
 
 ### 方法二: 字符串hash
 
@@ -144,7 +170,7 @@ public class Main {
 $opt[i] = max(opt[i - 2] + arr[i] + arr[i - 1]\ if\ color[i] \ne color[i - 1] , opt[i - 1]);$
 
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -180,6 +206,47 @@ public class Main {
 
     }
     
+}
+```
+
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long ;
+
+int main() {
+    
+    int n;    
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    string s;
+    cin >> s;
+
+    // 力扣打家劫舍问题
+    // dp[n][2]
+    // dp[n] -> 
+    vector<vector<int64>> dp(n, vector<int64>(2, 0LL));
+    
+    int64 res = 0;
+    for (int i = 1; i < n; i++) {
+        if (s[i] != s[i - 1]) {
+            dp[i][1] = dp[i - 1][0] + arr[i] + arr[i - 1];
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1]);
+        } else {
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1]);
+        }  
+        res = max(res, max(dp[i][0], dp[i][1]));
+    }
+    
+    cout << res << endl;
+    
+    return 0;
 }
 ```
 

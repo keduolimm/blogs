@@ -77,7 +77,7 @@ ${map[value][color]}$
 
 $\sum_{v_i} \sum_{c_j \in C} map[v_i][c_j] * (\sum_{k\in C} map[v_i][c_k] - map[v_i][c_j])$
 
-```java
+```java []
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -160,6 +160,49 @@ public class Main {
 }
 
 ```
+
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    int n;
+    cin >> n;
+    
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    string s;
+    cin >> s;
+    map<int, int> h1, h2;
+    for (int i = 0; i< n; i++) {
+        char c = s[i];
+        if (c == 'B') {
+            h2[arr[i]]++;
+        } else {
+            h1[arr[i]]++;
+        }
+    }
+    
+    long long res = 0LL;
+    for (auto iter = h1.begin(); iter != h1.end();  iter++) {
+        if (h2.find(iter->first) != h2.end()) {
+            res += (long long)h2[iter->first] * (iter->second);
+        }
+    }
+    cout << res << endl;
+    
+    return 0;
+}
+```
+
 ---
 
 ## [C. 游游的交换字符](https://ac.nowcoder.com/acm/contest/60245/C)
@@ -183,7 +226,7 @@ public class Main {
 前置的01构建完后，就删掉对应的01位置即可。
 
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -297,7 +340,7 @@ public class Main {
 
 $current_i是第i个1所在的位子，expect_i是被期望的位子$
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -349,6 +392,62 @@ public class Main {
 }
 ```
 
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct FastIO {
+    FastIO() {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+    }
+}_fastIo;
+
+
+int main() {
+    string s;
+    cin >> s;
+    
+    int n = s.length();
+    vector<int> list0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == '0') list0.push_back(i);
+    }
+    
+    long long cost = 0x3f3f3f3f;
+    if (n % 2 == 0) {
+        if (list0.size() == n / 2) {
+            long long tmp1 = 0, tmp2 = 0;
+            for (int i = 0; i < n / 2; i++) {
+                tmp1 += abs(list0[i] - (i * 2));   
+                tmp2 += abs(list0[i] - (i * 2 + 1));
+            }
+            cost = min(tmp1, tmp2);
+        }
+    } else {
+        if (list0.size() == n / 2 + 1) {
+            long long tmp1 = 0;
+            for (int i = 0; i < n / 2 + 1; i++) {
+                tmp1 += abs(list0[i] - (i * 2));   
+            }
+            cost = tmp1;
+        } else if (list0.size() == n / 2) {
+            long long tmp2 = 0;
+            for (int i = 0; i < n / 2; i++) {
+                tmp2 += abs(list0[i] - (i * 2 + 1));
+            }
+            cost = tmp2;
+        }
+    }
+
+    cout << cost << endl;
+    
+    return 0;
+}
+```
+
 ---
 ## [D. 游游的9的倍数](https://ac.nowcoder.com/acm/contest/60245/D)
 
@@ -374,7 +473,7 @@ $opt[i+1][a_{i+1}\%9] += 1$
 
 复杂度分析，时间$O(9*n)$, 空间复杂度为$O(20)$
 
-```java
+```java []
 import java.io.BufferedInputStream;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -417,6 +516,50 @@ public class Main {
 
 }
 ```
+
+```c++ []
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using int64 = long long;
+
+int main() {
+    
+    string s;
+    cin >> s;
+    
+    int64 mod = 1'000'000'000 + 7;
+    
+
+
+    int64 dp[2][9];
+    memset(dp[0], 0, sizeof(dp[0]));
+    
+    
+    int prev = 0, next = 1;
+    for (int i = 0; i < s.length(); i++) {
+        memset(dp[next], 0, sizeof(dp[next]));
+        char c = s[i];
+        
+        int d = c - '0';
+        for (int j = 0; j < 9; j++) {
+            dp[next][j] = (dp[next][j] + dp[prev][j]) % mod;
+            dp[next][(j + d) % 9] = (dp[next][(j + d) % 9] + dp[prev][j]) % mod;
+        }
+        
+        dp[next][d % 9] = (dp[next][d % 9] + 1) % mod;
+        
+        prev = 1 - prev;
+        next = 1 - next;
+    }
+    
+    cout << dp[prev][0] << endl;
+
+    return 0;
+}
+```
+
 
 如果9是个变量k，那其实也是同一种套路。
 
