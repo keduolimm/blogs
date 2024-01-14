@@ -18,13 +18,15 @@
 
 # map
 
+https://iowiki.com/cpp_standard_library/map.html
+
 - lower_bound 
 
 返回 >= 的最小的那个迭代器
 
 - upper_bound
 
-返回 <= 的最大的那个迭代器
+返回 > 的最小的那个迭代器
 
 
 - 如何获取最小key
