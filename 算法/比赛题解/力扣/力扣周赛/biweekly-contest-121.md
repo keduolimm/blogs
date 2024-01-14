@@ -43,6 +43,8 @@ public:
 
 思路: 思维题
 
+设 $k ^ \prod_{i=0}^{i=n-1} nums[i]$ 的1个数
+
 ```c++ []
 class Solution {
 public:
@@ -69,6 +71,8 @@ public:
 思路: BFS
 
 BFS的状态数10^6内
+
+如果x,y值域扩大的话，那就很变难了，需要用dfs来求解
 
 ```c++ []
 class Solution {

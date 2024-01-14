@@ -3,9 +3,11 @@
 
 # 力扣周赛
 
-[# 第 121 场双周赛 解题报告 | 珂学家 | 数位DP](biweekly-contest-121.md)
+[第 380 场周赛 解题报告 | 珂学家 | 数位DP & 二分 + 字符串Hash](weekly-contest-380.md)
 
-[# 第 378 场周赛 解题报告 | 珂学家 | 分类讨论场](weekly-contest-378.md)
+[第 121 场双周赛 解题报告 | 珂学家 | 数位DP](biweekly-contest-121.md)
+
+[第 378 场周赛 解题报告 | 珂学家 | 分类讨论场](weekly-contest-378.md)
 
 [第 377 场周赛 解题报告 | 珂学家 | Floyd + 划分型DP](weekly-contest-377.md)
 

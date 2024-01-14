@@ -54,7 +54,11 @@ D(n) = (n - 1) * (D(n - 1) - D(n - 2))
 ### 字符串hash
 [字符串hash实现](stringhash.md)
 
+### KMP
+
+
 ### z函数
+[z函数](z-function.md)
 
 ---
 
@@ -67,5 +71,12 @@ D(n) = (n - 1) * (D(n - 1) - D(n - 2))
 ### LCA
 
 [lca倍增](lca.md)
+
+
+---
+
+## 其他数据结构
+
+### 四叉树
 
 

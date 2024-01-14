@@ -1,22 +1,45 @@
 
 # string
 
-find
+- find
 
 子字符串的匹配
 
-push_back
+- push_back
 
 用于字符串的拼接
 
 
 # vector
 
-push_back
+- push_back
 
-pop_back
+- pop_back
 
 # map
+
+- lower_bound 
+
+返回 >= 的最小的那个迭代器
+
+- upper_bound
+
+返回 <= 的最大的那个迭代器
+
+
+- 如何获取最小key
+
+```c++
+map<int, int> mp;
+auto first = mp.begin();
+```
+
+- 如何获取最大key
+
+```c++
+map<int, int> mp;
+auto last = --mp.end();
+```
 
 
 # set
@@ -34,12 +57,27 @@ pop_back
 
 # multiset
 
+- erase
+
+如果指定值的话，是删除所有的相同的值
+
+如果是迭代器的话，就删除其中一个
 
 # deque
+
+- push_back
+
+- pop_front
 
 
 # unordered_map
 
+需要指定hash函数
+
+定义仿函数
+```c++ []
+
+```
 
 # priority_queue
 
