@@ -55,7 +55,7 @@ D(n) = (n - 1) * (D(n - 1) - D(n - 2))
 [字符串hash实现](stringhash.md)
 
 ### KMP
-
+[字符串KMP模板](kmp.md)
 
 ### z函数
 [z函数](z-function.md)
