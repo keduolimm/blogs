@@ -2,6 +2,7 @@
 
 # RMQ 版本的线段树
 
+
 ```java []
 
 import java.util.function.BiFunction;
@@ -81,4 +82,88 @@ class RmqSegTree<T> {
 
 }
 
+```
+
+---
+
+# Lazy SegTree
+
+```java []
+public class LazySegTree {
+
+    private int l, r;
+    LazySegTree left, right;
+    long v;
+    long change;
+
+    public LazySegTree(int l, int r, int[] arr) {
+        this.l = l;
+        this.r = r;
+        if (l == r) {
+            this.v = arr[l];
+        } else {
+            int m = l + (r - l) / 2;
+            this.left = new LazySegTree(l, m, arr);
+            this.right = new LazySegTree(m + 1, r, arr);
+        }
+    }
+
+    public void update(int ul, int ur, int delta) {
+        if (isLeaf()) {
+            this.change += delta;
+            this.v += this.change;
+            this.change = 0;
+            return;
+        }
+        if (this.l >= ul && this.r <= ur) {
+            this.change += delta;
+            return;
+        }
+        pushDown();
+
+        int m = l + (r - l) / 2;
+        if (ur <= m) {
+            this.left.update(ul, ur, delta);
+        } else if (ul > m) {
+            this.right.update(ul, ur, delta);
+        } else {
+            this.left.update(ul, m, delta);
+            this.right.update(m + 1, ur, delta);
+        }
+        pushUp();
+    }
+
+    public long query(int p) {
+        if (isLeaf()) {
+            if (this.change != 0) {
+                this.v += this.change;
+                this.change = 0;
+            }
+            return this.v;
+        }
+        pushDown();
+        int m = l + (r - l) / 2;
+        if (p <= m) {
+            return this.left.query(p);
+        } else {
+            return this.right.query(p);
+        }
+    }
+
+    void pushDown() {
+        if (this.change != 0) {
+            if (this.left != null) this.left.change += this.change;
+            if (this.right != null) this.right.change += this.change;
+            this.change = 0;
+        }
+    }
+
+    void pushUp() {
+    }
+
+    boolean isLeaf() {
+        return this.l == this.r;
+    }
+
+}
 ```

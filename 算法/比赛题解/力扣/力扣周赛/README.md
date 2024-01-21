@@ -3,6 +3,10 @@
 
 # 力扣周赛
 
+[第 381 场周赛 解题报告 | 珂学家 | 贪心构造 + 分类讨论&差分技巧](weekly-contest-381.md)
+
+[第 122 场双周赛 解题报告 | 珂学家 | 脑筋急转弯 + 滑窗&反悔堆](biweekly-contest-121.md)
+
 [第 380 场周赛 解题报告 | 珂学家 | 数位DP & 二分 + 字符串Hash](weekly-contest-380.md)
 
 [第 121 场双周赛 解题报告 | 珂学家 | 数位DP](biweekly-contest-121.md)
