@@ -3,6 +3,10 @@
 
 # 力扣周赛
 
+[第 383 场周赛 解题报告 | 珂学家 | Z函数/StringHash](weekly-contest-383.md)
+
+[ 第 123 场双周赛 解题报告 | 珂学家 | 二维偏序+单调队列优化](biweekly-contest-123.md)
+
 [第 382 场周赛 解题报告 | 珂学家 | 贪心构造](weekly-contest-382.md)
 
 [第 381 场周赛 解题报告 | 珂学家 | 贪心构造 + 分类讨论&差分技巧](weekly-contest-381.md)
