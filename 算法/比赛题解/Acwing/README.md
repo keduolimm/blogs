@@ -6,6 +6,8 @@
 
 ---
 
+[acwing 142 解题报告](acw142.md)
+
 [acwing 141 解题报告](acw141.md)
 
 [acwing 138 解题报告](acw138.md)
