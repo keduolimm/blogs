@@ -3,11 +3,15 @@
 
 # 力扣周赛
 
+[第 385 场周赛 解题报告 | 珂学家 | 字典树专场](weekly-contest-385.md)
+
+[第 124 场双周赛 解题报告 | 珂学家 | 非常规区间合并](biweekly-contest-124.md)
+
 [第 384 场周赛 解题报告 | 珂学家 | 贪心构造 + KMP板子](weekly-contest-384.md)
 
 [第 383 场周赛 解题报告 | 珂学家 | Z函数/StringHash](weekly-contest-383.md)
 
-[ 第 123 场双周赛 解题报告 | 珂学家 | 二维偏序+单调队列优化](biweekly-contest-123.md)
+[第 123 场双周赛 解题报告 | 珂学家 | 二维偏序+单调队列优化](biweekly-contest-123.md)
 
 [第 382 场周赛 解题报告 | 珂学家 | 贪心构造](weekly-contest-382.md)
 
