@@ -203,7 +203,46 @@ public class Main {
 ```
 
 ---
-## [F. 计算方程]()
+## [F. 计算方程](https://www.lanqiao.cn/problems/16982/learning/?contest_id=171)
+
+思路: 二分
+
+因为其函数是单调的，呈现单调性
+
+因此用二分是最优解
+
+```java[] 
+import java.io.BufferedInputStream;
+import java.util.Scanner;
+
+public class Main {
+
+    static boolean check(int x, int k, int m) {
+        double r1 = Math.sqrt(1.0 * x);
+        double r2 = (int)(Math.log(x) / Math.log(k));
+        return r1 + r2 > m;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(new BufferedInputStream(System.in));
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int k = sc.nextInt(), m = sc.nextInt();
+            int l = 1, r = m * m;
+            while (l <= r) {
+                int mid = l + (r - l) / 2;
+                if (check(mid, k, m)) {
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            System.out.println(l);
+        }
+    }
+
+}
+```
 
 ---
 
