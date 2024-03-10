@@ -6,6 +6,8 @@
 
 ---
 
+[Acwing 周赛145 解题报告 | 珂学家 | 贪心构造](acw145.md)
+
 [acwing 144 解题报告](acw143.md)
 
 [acwing 143 解题报告](acw143.md)
